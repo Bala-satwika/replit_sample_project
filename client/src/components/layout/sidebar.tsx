@@ -57,15 +57,15 @@ export default function Sidebar({ isMobile = false, onClose }: SidebarProps) {
           {navItems.map((item) => (
             <li className="mb-1" key={item.path}>
               <Link href={item.path}>
-                <a className={cn(
-                  "flex items-center px-4 py-2 rounded-md",
+                <div className={cn(
+                  "flex items-center px-4 py-2 rounded-md cursor-pointer",
                   location === item.path || (item.path === "/dashboard" && location === "/")
                     ? "text-gray-900 bg-gray-100"
                     : "text-gray-600 hover:bg-gray-100"
                 )}>
                   {item.icon}
                   {item.label}
-                </a>
+                </div>
               </Link>
             </li>
           ))}
@@ -79,10 +79,10 @@ export default function Sidebar({ isMobile = false, onClose }: SidebarProps) {
             {recentDatasets.map((dataset) => (
               <li className="mb-1" key={dataset.id}>
                 <Link href={`/datasets/${dataset.id}`}>
-                  <a className="flex items-center px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 rounded-md">
+                  <div className="flex items-center px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 rounded-md cursor-pointer">
                     <FileText className="mr-3 h-4 w-4 text-gray-400" />
                     {dataset.name}
-                  </a>
+                  </div>
                 </Link>
               </li>
             ))}
@@ -92,7 +92,7 @@ export default function Sidebar({ isMobile = false, onClose }: SidebarProps) {
       
       <div className="border-t border-gray-200 p-4">
         <Link href="/settings/profile">
-          <a className="flex items-center">
+          <div className="flex items-center cursor-pointer">
             <Avatar>
               <AvatarImage src="https://github.com/shadcn.png" alt="User" />
               <AvatarFallback>SC</AvatarFallback>
@@ -101,7 +101,7 @@ export default function Sidebar({ isMobile = false, onClose }: SidebarProps) {
               <p className="text-sm font-medium text-gray-700">Sarah Chen</p>
               <p className="text-xs text-gray-500">Designer</p>
             </div>
-          </a>
+          </div>
         </Link>
       </div>
     </aside>
