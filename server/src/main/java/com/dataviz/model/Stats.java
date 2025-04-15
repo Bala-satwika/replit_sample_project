@@ -1,50 +1,55 @@
 package com.dataviz.model;
 
+/**
+ * Stats model class representing system-wide statistics.
+ */
 public class Stats {
-    private int totalVisualizations;
-    private int sharedReports;
-    private int activeDatasets;
-    private int scheduledReports;
-
+    private Integer totalVisualizations;
+    private Integer sharedReports;
+    private Integer activeDatasets;
+    private Integer scheduledReports;
+    
     public Stats() {
     }
-
-    public Stats(int totalVisualizations, int sharedReports, int activeDatasets, int scheduledReports) {
+    
+    public Stats(Integer totalVisualizations, Integer sharedReports, Integer activeDatasets, Integer scheduledReports) {
         this.totalVisualizations = totalVisualizations;
         this.sharedReports = sharedReports;
         this.activeDatasets = activeDatasets;
         this.scheduledReports = scheduledReports;
     }
-
-    public int getTotalVisualizations() {
+    
+    // Getters and Setters
+    
+    public Integer getTotalVisualizations() {
         return totalVisualizations;
     }
-
-    public void setTotalVisualizations(int totalVisualizations) {
+    
+    public void setTotalVisualizations(Integer totalVisualizations) {
         this.totalVisualizations = totalVisualizations;
     }
-
-    public int getSharedReports() {
+    
+    public Integer getSharedReports() {
         return sharedReports;
     }
-
-    public void setSharedReports(int sharedReports) {
+    
+    public void setSharedReports(Integer sharedReports) {
         this.sharedReports = sharedReports;
     }
-
-    public int getActiveDatasets() {
+    
+    public Integer getActiveDatasets() {
         return activeDatasets;
     }
-
-    public void setActiveDatasets(int activeDatasets) {
+    
+    public void setActiveDatasets(Integer activeDatasets) {
         this.activeDatasets = activeDatasets;
     }
-
-    public int getScheduledReports() {
+    
+    public Integer getScheduledReports() {
         return scheduledReports;
     }
-
-    public void setScheduledReports(int scheduledReports) {
+    
+    public void setScheduledReports(Integer scheduledReports) {
         this.scheduledReports = scheduledReports;
     }
 }

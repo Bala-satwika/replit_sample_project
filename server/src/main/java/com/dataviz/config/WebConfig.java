@@ -1,25 +1,23 @@
 package com.dataviz.config;
 
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+/**
+ * Web configuration for the application.
+ * Configures CORS and other web-specific settings.
+ */
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
 
     @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        // Serve static resources from client/dist
-        registry.addResourceHandler("/**")
-                .addResourceLocations("classpath:/static/");
-    }
-
-    @Override
-    public void addViewControllers(ViewControllerRegistry registry) {
-        // Forward requests to index.html for SPA routing
-        registry.addViewController("/").setViewName("forward:/index.html");
-        registry.addViewController("/{x:[\\w\\-]+}").setViewName("forward:/index.html");
-        registry.addViewController("/{x:^(?!api$).*$}/**").setViewName("forward:/index.html");
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**")
+                .allowedOrigins("http://localhost:5173", "http://localhost:5000")
+                .allowedMethods("GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS")
+                .allowedHeaders("*")
+                .allowCredentials(true)
+                .maxAge(3600);
     }
 }

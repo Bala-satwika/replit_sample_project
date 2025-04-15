@@ -13,6 +13,9 @@ public class Application {
         SpringApplication.run(Application.class, args);
     }
 
+    /**
+     * Configure CORS globally for the application
+     */
     @Bean
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurer() {
@@ -20,8 +23,9 @@ public class Application {
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
                         .allowedOrigins("*")
-                        .allowedMethods("GET", "POST", "PUT", "DELETE")
-                        .allowedHeaders("*");
+                        .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+                        .allowedHeaders("*")
+                        .maxAge(3600);
             }
         };
     }
