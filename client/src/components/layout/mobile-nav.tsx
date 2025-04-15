@@ -25,15 +25,15 @@ export default function MobileNav() {
         <div className="flex justify-around">
           {navItems.map((item) => (
             <Link key={item.path} href={item.path}>
-              <a className={cn(
-                "group flex flex-col items-center py-3 px-2",
+              <div className={cn(
+                "group flex flex-col items-center py-3 px-2 cursor-pointer",
                 location === item.path || (item.path === "/dashboard" && location === "/")
                   ? "text-primary"
                   : "text-gray-500 hover:text-primary"
               )}>
                 {item.icon}
                 <span className="text-xs mt-1">{item.label}</span>
-              </a>
+              </div>
             </Link>
           ))}
         </div>
